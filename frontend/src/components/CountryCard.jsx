@@ -22,8 +22,9 @@ function CountryCard({ item }) {
     setFavoriteList([...favoriteList, item]);
   };
 
-  const bg = useColorModeValue("white", "gray.700");
-  const borderColor = useColorModeValue("gray.200", "gray.600");
+  const bg = useColorModeValue("teal.500", "gray.700");
+  const borderColor = useColorModeValue("teal.700", "gray.600");
+  const textColor = useColorModeValue("white", "gray.100");
 
   return (
     <Box
@@ -34,7 +35,7 @@ function CountryCard({ item }) {
       w="300px"
       bg={bg}
       borderColor={borderColor}
-      boxShadow="lg"
+      boxShadow="2xl"
       transition="all 0.3s"
       _hover={{ transform: "scale(1.05)", boxShadow: "xl" }}
     >
@@ -45,24 +46,25 @@ function CountryCard({ item }) {
           borderRadius="md"
           boxShadow="md"
         />
-        <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+        <Text fontSize="2xl" fontWeight="bold" textAlign="center" color={textColor}>
           {filteredCountry.name}
         </Text>
-        <Text fontSize="md" textAlign="center">
+        <Text fontSize="md" textAlign="center" color={textColor}>
           <strong>Currency:</strong> {filteredCountry.currency}
         </Text>
-        <Text fontSize="md" textAlign="center">
+        <Text fontSize="md" textAlign="center" color={textColor}>
           <strong>Capital:</strong> {filteredCountry.capital}
         </Text>
-        <Text fontSize="md" textAlign="center">
+        <Text fontSize="md" textAlign="center" color={textColor}>
           <strong>Languages:</strong> {filteredCountry.languages}
         </Text>
         <Tooltip label="Add to Favorites" aria-label="Add to Favorites">
           <IconButton
             icon={<StarIcon />}
-            colorScheme="teal"
-            variant="outline"
+            colorScheme="yellow"
+            variant="solid"
             onClick={() => handleClick(item)}
+            _hover={{ color: "white", bg: "yellow.500" }}
           />
         </Tooltip>
       </VStack>

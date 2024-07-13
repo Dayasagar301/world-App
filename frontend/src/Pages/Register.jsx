@@ -17,7 +17,7 @@ import {
 import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { BASE_URL } from "../util/vars"
+import { BASE_URL } from "../util/vars";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -35,6 +35,7 @@ const Register = () => {
       [event.target.name]: value,
     });
   };
+
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     const { name, email, password } = state;
@@ -84,8 +85,9 @@ const Register = () => {
       password: "",
     });
   };
+
   return (
-    <Flex align={"center"} justify={"center"} mt={"70px"}>
+    <Flex align={"center"} justify={"center"} minH={"100vh"} bgGradient="linear(to-r, teal.400, blue.400)">
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={0} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"} textAlign={"center"}>

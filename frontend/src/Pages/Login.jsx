@@ -95,7 +95,7 @@ const Login = () => {
   };
 
   return (
-    <Flex align={"center"} justify={"center"} minH={"100vh"} bg={useColorModeValue("gray.50", "gray.800")}>
+    <Flex align={"center"} justify={"center"} minH={"100vh"} bgGradient="linear(to-r, teal.400, blue.400)">
       <Stack spacing={8} mx={"auto"} maxW={"md"} py={12} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Login to your account</Heading>
