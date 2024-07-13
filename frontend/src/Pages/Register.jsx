@@ -17,7 +17,7 @@ import {
 import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { BASE_URL } from "../util/vars";
+import { BASE_URL } from "../util/vars"
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -35,7 +35,6 @@ const Register = () => {
       [event.target.name]: value,
     });
   };
-
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     const { name, email, password } = state;
@@ -85,30 +84,21 @@ const Register = () => {
       password: "",
     });
   };
-
   return (
-    <Flex
-      align={"center"}
-      justify={"center"}
-      minH={"100vh"}
-      bg={useColorModeValue("gray.50", "gray.800")}
-    >
-      <Stack spacing={8} mx={"auto"} maxW={"md"} py={12} px={6}>
+    <Flex align={"center"} justify={"center"} mt={"70px"}>
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={0} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"} textAlign={"center"}>
             Create new account
           </Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
-          </Text>
         </Stack>
         <Box
           rounded={"lg"}
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
-          p={8}
+          p={6}
         >
-          <Stack spacing={4}>
+          <Stack spacing={3}>
             <FormControl id="userName" isRequired>
               <FormLabel>Username</FormLabel>
               <Input
@@ -116,7 +106,7 @@ const Register = () => {
                 name="name"
                 value={state.name}
                 onChange={handleChange}
-                placeholder="Enter your username"
+                placeholder="Name"
               />
             </FormControl>
             <FormControl id="email" isRequired>
@@ -126,7 +116,7 @@ const Register = () => {
                 name="email"
                 value={state.email}
                 onChange={handleChange}
-                placeholder="Enter your email address"
+                placeholder="Email"
               />
             </FormControl>
             <FormControl id="password" isRequired>
@@ -137,19 +127,21 @@ const Register = () => {
                   name="password"
                   value={state.password}
                   onChange={handleChange}
-                  placeholder="Enter your password"
+                  placeholder="Password"
                 />
                 <InputRightElement h={"full"}>
                   <Button
                     variant={"ghost"}
-                    onClick={() => setShowPassword(!showPassword)}
+                    onClick={() =>
+                      setShowPassword((showPassword) => !showPassword)
+                    }
                   >
                     {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                   </Button>
                 </InputRightElement>
               </InputGroup>
             </FormControl>
-            <Stack spacing={10} pt={2}>
+            <Stack pt={4}>
               <Button
                 loadingText="Submitting"
                 size="lg"
@@ -158,17 +150,16 @@ const Register = () => {
                 _hover={{
                   bg: "blue.500",
                 }}
+                width={"70%"}
+                margin={"auto"}
                 onClick={handleOnSubmit}
               >
                 Register
               </Button>
             </Stack>
-            <Stack pt={6}>
+            <Stack pt={2}>
               <Text align={"center"}>
-                Already a user?{" "}
-                <Link as={RouterLink} color={"blue.400"} to="/login">
-                  Login
-                </Link>
+                Already a user? <Link as={RouterLink} color={"blue.400"} to="/login">Login</Link>
               </Text>
             </Stack>
           </Stack>
